@@ -52,6 +52,12 @@ public class Book implements Serializable {
     @Size(min = 1, max = 100)
     @Column(name = "author")
     private String author;
+    @Size(max = 100)
+    @Column(name = "coAuthor")
+    private String coAuthor;
+    @Size(max = 100)
+    @Column(name = "isbn")
+    private String isbn;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 50)
@@ -73,10 +79,12 @@ public class Book implements Serializable {
         this.id = id;
     }
 
-    public Book(Integer id, String name, String author, String category, int year, float price) {
+    public Book(Integer id, String name, String author, String coAuthor, String isbn, String category, int year, float price) {
         this.id = id;
         this.name = name;
         this.author = author;
+        this.coAuthor = coAuthor;
+        this.isbn = isbn;
         this.category = category;
         this.year = year;
         this.price = price;
@@ -104,6 +112,22 @@ public class Book implements Serializable {
 
     public void setAuthor(String author) {
         this.author = author;
+    }
+
+    public String getCoAuthor() {
+        return coAuthor;
+    }
+
+    public void setCoAuthor(String coAuthor) {
+        this.coAuthor = coAuthor;
+    }
+
+    public String getIsbn() {
+        return isbn;
+    }
+
+    public void setIsbn(String isbn) {
+        this.isbn = isbn;
     }
 
     public String getCategory() {
